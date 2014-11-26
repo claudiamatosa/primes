@@ -14,7 +14,8 @@ angular.module('primesApp.table', ['ngRoute'])
     MAXIMUM_EXCEEDED: 'There are too many primes in this table, so they will not fit ' +
         'in the screen. The last prime for the given number is',
     NO_PRIMES: 'There are no primes to display.',
-    PERFORMANCE_LOCK: 'Calculating such a high number may create a performance issue.'
+    PERFORMANCE_LOCK: 'Please click the button to calculate.',
+    CALCULATING: 'Calculating...'
 })
 
 .value('NUMBER_OF_PRIMES', 10)
@@ -38,6 +39,7 @@ angular.module('primesApp.table', ['ngRoute'])
         this.messages = MESSAGES;
         
         this.performanceLock = false;
+        this.loading = false;
 
        /**
          * @ngdoc method
@@ -56,6 +58,13 @@ angular.module('primesApp.table', ['ngRoute'])
             } else {
                 this.performanceLock = true;
             }
+        };
+        
+        this.updatePrimesWithButton = function () {
+            this.loading = true;
+            this.primeList.updateList(this.numberOfPrimes);
+            this.performanceLock = false;
+            this.loading = false;
         };
         
         this.displayPrimes();
