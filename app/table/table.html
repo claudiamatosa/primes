@@ -1,0 +1,56 @@
+<section class="table" ng-cloak>
+
+  <header>
+    <h1 class="title">
+      Primes
+    </h1>
+  </header>
+
+  <form class="pure-form">
+    <label for="number-of-primes">
+      Primes on display:
+    </label>
+
+    <input type="number" id="number-of-primes" ng-model="table.numberOfPrimes" ng-change="table.updatePrimes()">
+  </form>
+
+  <section class="primes-table" ng-if="!table.primeList.isMaximum && table.primeList.primes.length && !table.performanceLock">
+    <table class="pure-table pure-table-bordered">
+      <thead>
+        <tr>
+          <td></td>
+          <td ng-repeat="prime in table.primeList.primes">
+            {{ prime }}
+          </td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="prime in table.primeList.primes">
+          <td>
+            {{ prime }}
+          </td>
+          
+          <td ng-repeat="product in table.primeList.multiplicationMatrix[$index]">
+            {{ product }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="primes-message">
+    <span ng-if="table.primeList.isMaximum && !table.performanceLock">
+      {{ table.messages.MAXIMUM_EXCEEDED }} <b>{{ table.primeList.getLastPrime() }}</b>.
+    </span>
+    
+    <span ng-if="!table.primeList.primes.length && !table.performanceLock">
+      {{ table.messages.NO_PRIMES }}
+    </span>
+    
+    <span ng-if="table.performanceLock">
+      {{ table.messages.PERFORMANCE_LOCK }}
+    </span>
+  </section>
+
+</section>

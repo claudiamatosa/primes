@@ -1,0 +1,13 @@
+.table {
+  box-sizing: border-box;
+  margin: auto;
+  padding: 30px 15px 30px 30px;
+}
+
+.primes-message, .primes-table {
+  margin: 20px 0;
+}
+
+.primes-message {
+  font-style: italic;
+}
