@@ -18,7 +18,11 @@ If everything has worked successfully, navigate to http://localhost:8000.
 
 ## Testing
 
-This app contains some unit and end-to-end tests. In order to run them, follow [angular-seed's procedure](https://github.com/angular/angular-seed#testing). 
+This app contains some unit tests. In order to run them, simply write:
+
+    npm test
+    
+The test files are contained next to the code itself.
 
 ## Tools used
 
