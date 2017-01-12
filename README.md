@@ -6,7 +6,7 @@ Calculating a table of prime number multiplications.
 
 ## Runing the project
 
-The code can be viewed under `http://claudiamatosa.com/code/primes`.
+The code can be viewed under `https://claudiamatosa.com/code/primes`.
 
 ### To run locally
 
